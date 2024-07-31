@@ -1,0 +1,8 @@
+Flask
+numpy
+gunicorn
+joblib 
+scikit-learn==1.3.2 
+pillow 
+opencv-python
+pytest

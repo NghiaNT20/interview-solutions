@@ -1,0 +1,3 @@
+*.gz
+__pycache__
+*.npz
