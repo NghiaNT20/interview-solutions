@@ -37,7 +37,7 @@ jobs:
 
     - name: Push Docker image
       run: |
-        docker tag my-flask-app:latest ntnghia20/my-flask-app:latest
         echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+        docker tag my-flask-app:latest ntnghia20/my-flask-app:latest
         docker push ntnghia20/my-flask-app:latest
 
