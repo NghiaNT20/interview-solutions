@@ -4,20 +4,22 @@
     SVM (Support Vector Machine) model
 
     Precision : 0.9404
-
+ 
 # Exercise 2:
 a. Formula:
 Triplet loss is defined as follows:
 
-    [ L(a, p, n) = \max(0, d(a, p) - d(a, n) + \alpha) ] 
+$$
+L(a, p, n) = \max(0, d(a, p) - d(a, n) + \alpha) 
+$$
 
 While:
 
-    a : is anchor 
-    p : is positive 
-    n : is negative 
-    d(x, y) : is the distance between two points ( x ) and ( y ) (usually Euclidean distance is used)
-    \alpha : is margin (border distance)
+a : is anchor 
+p : is positive 
+n : is negative 
+d(x, y) : is the distance between two points ( x ) and ( y ) (usually Euclidean distance is used)
+$ \alpha $ : is margin (border distance)
 
 Explain:
 
@@ -26,13 +28,13 @@ Explain:
 
 b. 
 When expanding triplet loss with 2 real samples and 5 fake samples, the formula can be written as follows:
-
-    [ L(a, p_1, p_2, n_1, n_2, n_3, n_4, n_5) = \max(0, d(a, p_1) - \min(d(a, n_i)) + \alpha) + \max(0, d(a, p_2) - \min(d(a, n_i)) + \alpha) ] 
-
+$$
+L(a, p_1, p_2, n_1, n_2, n_3, n_4, n_5) = \max(0, d(a, p_1) - \min(d(a, n_i)) + \alpha) + \max(0, d(a, p_2) - \min(d(a, n_i)) + \alpha) 
+$$
 While:
 
-    p_1, p_2 : are two positive samples
-    n_1, n_2, n_3, n_4, n_5 : are two negative samples
+$p_1, p_2$ : are two positive samples
+$n_1, n_2, n_3, n_4, n_5$ : are two negative samples
 
 Explain:
 
@@ -77,14 +79,18 @@ Summary:
 
 # Exercise 4:
 
-    1. Build API with Flask
-    2. Package Application with Docker
-        Test API with Postman
-    3. Set up CI/CD with GitHub Actions
-        Create a .github/workflows/ci_cd.yml file to configure CI/CD pipeline.
-    4. Automate Testing with Pytest
-    5. Automate Docker Build
-        Docker will be automatically built in CI/CD pipeline when there is a new commit to the "master" branch.
-    6. Run CI/CD Pipeline
+1. Build API with Flask
+2. Package Application with Docker
+## Run Dockerfile:
+- docker build -t my_flask_app .
+- docker run -it -p 8000:8000 --name my_flask_container -v $(pwd):/app -d my-flask-app /bin/bash
+
+    Test API with Postman
+3. Set up CI/CD with GitHub Actions
+    Create a .github/workflows/ci_cd.yml file to configure CI/CD pipeline.
+4. Automate Testing with Pytest
+5. Automate Docker Build
+    Docker will be automatically built in CI/CD pipeline when there is a new commit to the "master" branch.
+6. Run CI/CD Pipeline
 
     
