@@ -25,7 +25,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install flask joblib scikit-learn numpy pytest
+        pip install Flask joblib scikit-learn numpy pytest opencv-python pillow gunicorn
 
     - name: Run tests
       run: |
