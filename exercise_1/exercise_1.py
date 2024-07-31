@@ -11,12 +11,12 @@ import os
 def read_idx(filename):
     with gzip.open(filename, "rb") as f:
         magic_number, num_items = struct.unpack(">II", f.read(8))
-        if magic_number == 2051:  # Magic number cho tệp hình ảnh
+        if magic_number == 2051:  
             num_rows, num_cols = struct.unpack(">II", f.read(8))
             data = np.frombuffer(f.read(), dtype=np.uint8).reshape(
                 num_items, num_rows, num_cols
             )
-        elif magic_number == 2049:  # Magic number cho tệp nhãn
+        elif magic_number == 2049: 
             data = np.frombuffer(f.read(), dtype=np.uint8).reshape(num_items)
         else:
             raise ValueError("Invalid magic number in file: {}".format(magic_number))
