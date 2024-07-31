@@ -15,6 +15,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        path: exercise_4
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -35,7 +37,7 @@ jobs:
 
     - name: Push Docker image
       run: |
-        docker tag my-flask-app:latest my-dockerhub-username/my-flask-app:latest
+        docker tag my-flask-app:latest ntnghia20/my-flask-app:latest
         echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
-        docker push my-dockerhub-username/my-flask-app:latest
+        docker push ntnghia20/my-flask-app:latest
 
